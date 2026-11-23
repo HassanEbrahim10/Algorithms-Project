@@ -27,7 +27,7 @@ Result removeCoins(int n, char coins[]){
     Result result;
     vector<int> Headers;
     for(int i = 0; i < n ; i++){
-        if(coins[i]=='H')
+        if(coins[i] == 'H')
             Headers.push_back(i);
     }
 
@@ -43,14 +43,14 @@ Result removeCoins(int n, char coins[]){
             result.sequence.push_back(leftmost_index);
             Headers.erase(Headers.begin());
 
-            if(leftmost_index = 0)
+            if(leftmost_index == 0)
             {
                 coins[leftmost_index] = '0';
                 check++;
                 if(coins[leftmost_index + 1] == 'T')
                 {
                     coins[leftmost_index + 1] = 'H';
-                    Headers.insert(Headers.begin(), leftmost_index - 1);
+                    Headers.insert(Headers.begin(), leftmost_index + 1);
                 }
                 else if(coins[leftmost_index + 1] == 'H')
                 {
@@ -63,20 +63,31 @@ Result removeCoins(int n, char coins[]){
             {
                 coins[leftmost_index] = '0';
                 check++;
-                if(coins[leftmost_index + 1] == 'T')
+                if(leftmost_index == n-1)
                 {
-                    coins[leftmost_index + 1] = 'H';
-                    Headers.insert(Headers.begin(), leftmost_index - 1);
-                }
-                else if(coins[leftmost_index + 1] == 'H')
-                {
-                    coins[leftmost_index + 1] = 'T';
-                    Headers.erase(Headers.begin());
-                }
-                if(coins[leftmost_index - 1] == 'T')
-                {
+                    if(coins[leftmost_index - 1] == 'T')
+                    {
                     coins[leftmost_index - 1] = 'H';
                     Headers.insert(Headers.begin(), leftmost_index - 1);
+                    }
+                }
+                else
+                {
+                    if(coins[leftmost_index + 1] == 'T')
+                    {
+                        coins[leftmost_index + 1] = 'H';
+                        Headers.insert(Headers.begin(), leftmost_index + 1);
+                    }
+                    else if(coins[leftmost_index + 1] == 'H')
+                    {
+                        coins[leftmost_index + 1] = 'T';
+                        Headers.erase(Headers.begin());
+                    }
+                    if(coins[leftmost_index - 1] == 'T')
+                    {
+                        coins[leftmost_index - 1] = 'H';
+                        Headers.insert(Headers.begin(), leftmost_index - 1);
+                    }
                 }
             }
         }
