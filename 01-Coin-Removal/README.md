@@ -12,16 +12,17 @@ A line of coins lies on a table, each showing either heads or tails. A move remo
 
 ## 2. Problem Description
 
-You are given a line of coins, each showing either Heads or Tails.
-
-### Rules:
-- You can remove any coin showing Heads.
-- After removing a coin, its immediate neighbors in the original line must be flipped.
-- Removing a coin does not make previously non-adjacent coins become neighbors.
+You are given a line of coins. Each coin has one of two possible states:
+- **H (Heads):** The front side of the coin.
+- **T (Tails):** The back side of the coin.
   
-### Objective:
-- Determine exactly which initial configurations can be completely cleared.
-- If possible, provide a valid sequence of coin removals.
+You are allowed to perform the following operation, called a **Move**:
+1. Select any coin that is currently showing Heads.
+2. Remove that coin from the line.
+3. Flip its immediate neighbors, if they exist.
+4. Repeat until all coins are removed or no valid move is possible.
+   
+**Important:** Neighbors are determined by their positions in the original line. Removing a coin does not make previously non-adjacent coins become neighbors.
 
 ### Required function:
 - removeCoins(n, coins) -> (possible, flips)
