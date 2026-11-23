@@ -29,25 +29,15 @@ You are allowed to perform the following operation, called a **Move**:
 
 ## 3. Assumptions
 
-[List any assumptions made while interpreting or solving the problem. If no additional assumptions are needed, write "No additional assumptions."]
-
-1. [Assumption 1]
-2. [Assumption 2]
-3. [Assumption 3]
-
 ## 4. Algorithm Explanation
 
-### Core Idea
+1. Look at the available choices.
+2. Select the leftmost available Heads-up coin at each step.
+3. After selecting a coin, the algorithm removes it and flips its remaining original neighbors. 
+4. Update the current state.
+5. Repeat until all coins are removed or no removable coin remains.
 
-[Explain the main idea behind the solution.]
-
-### Why This Technique?
-
-[Explain how the assigned algorithmic technique is applied and why the solution follows this technique.]
-
-### Solution Approach
-
-[Describe how the algorithm solves the problem, including the important decisions and cases it handles.]
+This choice is safe because all coins before the leftmost Heads-up coin are Tails. Their removal depends on flipping them through the removal of neighboring coins, so the leftmost Heads-up coin can be selected first without losing a valid removal sequence.
 
 ## 5. Test Cases
 
@@ -118,3 +108,4 @@ At least **three test cases** must be provided to demonstrate the correctness of
 
 - **Complexity:** (O(...))
 - **Analysis:** [Explain the additional memory required by the algorithm and how it depends on the input size.]
+
