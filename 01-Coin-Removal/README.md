@@ -4,6 +4,8 @@
 
 A line of coins lies on a table, each showing either heads or tails. A move removes any heads-up coin and then flips its immediate neighbors, if present. Two coins count as neighbors only if they were adjacent in the original line; removing a coin does not close the gap. Determine precisely which starting rows can be cleared and give a valid removal sequence.
 
+![Task Image](Task-1.jpeg)
+
 - **Required Function Signature:**
   removeCoins(n: int, coins: char[]) -> (possible: bool, flips: int[])
 - **Required Algorithmic Technique:** Greedy
